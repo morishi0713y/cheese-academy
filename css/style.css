@@ -1,0 +1,432 @@
+html{
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.wrap{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;  /* ロゴは左、メニューは右 */
+    align-items: center;             /* 上下中央 */
+    padding: 10px 20px;
+    position: sticky;     /* スクロールしても上に貼り付く */
+    top: 0;               /* 画面の一番上で止める */
+    z-index: 100;         /* ほかの要素より手前に表示 */
+    background-color: white;
+}
+
+.logo img{
+    height: 60px;                    /* ロゴの大きさ */
+    display: block;
+}
+
+.nav_list{
+    display: flex;                   /* メニューを横並び */
+    gap: 40px;
+    list-style: none;                /* 先頭の「・」を消す */
+}
+
+.nav_list a{
+    color: #333;
+    text-decoration: none;           /* 下線を消す */
+}
+
+.mainvisual{
+    height: 500px;
+    background: url(../img/mainbg.png) center / cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.mv_title{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.mv_subtitle{
+    font-size: 24px;
+}
+
+/* ========== 共通の見出し ========== */
+.section_title{
+    color: #ffd400;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.section_subtitle{
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+section{
+    scroll-margin-top: 90px;   /* ヘッダーの高さ分、手前で止める */
+}
+
+/* ========== about ========== */
+.about{
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.about p{
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+/* ========== gallery（矢印ボタンで横スクロール） ========== */
+.gallery_wrap{
+    position: relative;
+}
+
+.gallery{
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 10px;
+}
+
+.gallery img{
+    flex: 0 0 40%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    scroll-snap-align: start;
+}
+
+.gallery_btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.prev{ left: 10px; }
+.next{ right: 10px; }
+
+.gallery{
+    scrollbar-width: none;           /* Firefox など */
+}
+.gallery::-webkit-scrollbar{
+    display: none;                   /* Chrome・Safari */
+}
+
+@media (max-width: 768px){
+    .gallery img{
+        flex-basis: 80%;
+    }
+}
+
+/* ========== course ========== */
+.course{
+   text-align: center;
+    padding: 60px 20px;  
+}
+
+.course .section_title{
+    color: #333;
+}
+
+.course_item{
+    display: flex;
+}
+
+.reverse{                          /* 追加：2行目を左右逆に */
+    flex-direction: row-reverse;
+}
+
+.course_img{
+    width: 50%;
+}
+
+.course_img img{                   /* 追加：画像を箱いっぱいに */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.course_text{
+    width: 50%;
+    text-align: left;
+    display: flex;                 /* 追加ここから */
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 60px;
+    background-color: #f7f7f7;     /* 追加ここまで */
+}
+
+.news{ padding: 60px 0; text-align: center; }
+
+.news_list{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.news .section_title{
+    color: #ffd400;
+}
+
+.news_item{
+    width: 280px;              /* カード1枚の幅 */
+    text-align: left;
+}
+
+.news_item img{
+    width: 100%;
+    display: block;
+}
+
+.btn_wrap{
+    text-align: center;      /* ボタンを中央に */
+    margin-top: 40px;
+}
+
+.btn{
+    display: inline-block;   /* a に幅・余白を付けられるようにする */
+    width: 200px;
+    padding: 12px 0;
+    background-color: #ffd400;
+    color: white;
+    text-decoration: none;   /* 下線を消す */
+}
+
+.btn:hover{
+    opacity: 0.8;            /* マウスを乗せると少し薄くなる */
+}
+
+.access{
+    background-color: #f7f7f7;
+    padding: 60px 0;
+    text-align: center;      /* 見出しを中央に */
+}
+
+.access iframe{
+    width: 100%;
+    height: 400px;
+    display: block;
+}
+
+.access_table{
+    margin: 40px auto;        /* 上下40px、左右autoで中央に */
+}
+
+.access_table th,
+.access_table td{
+    padding: 10px 20px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.access_table th{
+    font-weight: normal;      /* 見本は項目名も太字ではない */
+    width: 160px;
+}
+
+/* ========== contact ========== */
+.contact{
+    padding: 60px 0;
+    text-align: center;
+}
+
+.contact_form{
+    width: 600px;
+    margin: 40px auto 0;      /* フォームを中央に */
+    text-align: left;         /* 中身は左揃えに戻す */
+}
+
+.form_row{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.form_row label,
+.form_label{
+    width: 200px;             /* 項目名の幅をそろえる */
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+.form_row input[type="text"],
+.form_row input[type="email"],
+.form_row select,
+.form_row textarea{
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.checkbox_list{
+    display: flex;
+    flex-direction: column;   /* チェックボックスを縦に並べる */
+    gap: 10px;
+}
+
+.checkbox_list label{
+    width: auto;              /* 上で付けた200pxを打ち消す */
+}
+
+/* ========== footer ========== */
+.footer{
+    background-color: #666;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 12px;
+}
+
+/* ========== hover ========== */
+.nav_list a{
+    transition: color 0.3s;       /* 色が0.3秒かけて変わる */
+}
+
+.nav_list a:hover{
+    color: #ffd400;
+}
+
+.btn{
+    transition: opacity 0.3s;
+    cursor: pointer;              /* マウスを指の形にする */
+}
+
+.btn:hover{
+    opacity: 0.7;
+}
+
+.news_item{
+    overflow: hidden;             /* はみ出た部分を隠す */
+}
+
+.news_item img{
+    transition: transform 0.4s;
+}
+
+.news_item:hover img{
+    transform: scale(1.05);       /* 1.05倍に拡大 */
+}
+
+/* ========== ハンバーガーメニュー ========== */
+.menu_btn{
+    display: none;               /* PCでは隠す */
+}
+
+@media (max-width: 768px){
+    .menu_btn{
+        display: block;
+        width: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .menu_btn span{
+        display: block;
+        height: 2px;
+        background-color: #333;
+        margin: 6px 0;
+    }
+
+    nav{
+        display: none;           /* スマホではメニューを隠す */
+        position: absolute;
+        top: 100%;               /* ヘッダーのすぐ下に出す */
+        left: 0;
+        width: 100%;
+        background-color: white;
+    }
+    nav.is-open{
+        display: block;          /* is-open が付いたら表示 */
+    }
+    .nav_list{
+        flex-direction: column;  /* メニューを縦に並べる */
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+    }
+}
+
+/* ========== フェードイン ========== */
+.fadein{
+    opacity: 0;
+    transform: translateY(30px);              /* 30px 下にずらす */
+    transition: opacity 0.8s, transform 0.8s;
+}
+
+.fadein.is-show{
+    opacity: 1;
+    transform: translateY(0);                 /* 元の位置へ */
+}
+
+/* ========== スマホ（768px以下） ========== */
+@media (max-width: 768px){
+    /* ここに書いた指定は、画面幅768px以下のときだけ効く */
+}
+
+@media (max-width: 768px){
+
+    /* メインビジュアル：文字を小さく */
+    .mainvisual{
+        height: 300px;
+        padding: 0 20px;
+        text-align: center;
+    }
+    .mv_title{ font-size: 24px; }
+    .mv_subtitle{ font-size: 14px; }
+
+    /* COURSE：左右50% → 縦積み */
+    .course_item,
+    .reverse{
+        flex-direction: column;     /* reverse も含めて全部「画像→文章」の順に */
+    }
+    .course_img,
+    .course_text{
+        width: 100%;
+    }
+    .course_text{
+        padding: 30px 20px;
+    }
+
+    /* NEWS：カード3枚 → 縦積み */
+    .news_list{
+        flex-direction: column;
+        align-items: center;
+    }
+    .news_item{
+        width: 90%;
+    }
+
+    /* CONTACT：項目名と入力欄を縦に */
+    .contact_form{
+        width: 90%;
+    }
+    .form_row{
+        flex-direction: column;
+        gap: 8px;
+    }
+    .form_row input[type="text"],
+    .form_row input[type="email"],
+    .form_row select,
+    .form_row textarea{
+        width: 100%;
+    }
+}
